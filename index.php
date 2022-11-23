@@ -54,7 +54,7 @@ $today = Carbon::now();
             <input type="submit" value="Submit">
         </form>
 
-        <?php $weather = $apiClient->getWeatherNow($_GET['city']); ?>
+        <?php $weather = $apiClient->getWeatherNow($_GET['city'] ?? 'Riga'); ?>
         <h1>In <?php echo $weather->getCity() ?> city weather now is:</h1>
         <div class="weather-icon"><img src="http://openweathermap.org/img/w/<?php echo $weather->getIcon()?>.png" /></div>
         <p>
@@ -65,7 +65,7 @@ $today = Carbon::now();
             <br>Wind speed is <?php echo $weather->getWindSpeed() ?> m/s
         </p>
 
-        <?php $weather = $apiClient->getWeatherAfterTwelveHour($_GET['city']); ?>
+        <?php $weather = $apiClient->getWeatherAfterTwelveHour($_GET['city'] ?? 'Riga'); ?>
         <h1>Forecast after 12 hours in <?php echo $weather->getCity() ?> city:</h1>
         <div class="weather-icon"><img src="http://openweathermap.org/img/w/<?php echo $weather->getIcon()?>.png" /></div>
         <p>
@@ -76,7 +76,7 @@ $today = Carbon::now();
             <br>Wind speed is <?php echo $weather->getWindSpeed() ?> m/s
         </p>
 
-        <?php $weather = $apiClient->getForecastForToday($_GET['city']); ?>
+        <?php $weather = $apiClient->getForecastForToday($_GET['city'] ?? 'Riga'); ?>
         <h1>Forecast for today in <?php echo $weather->getCity() ?> city:</h1>
         <div class="weather-icon"><img src="http://openweathermap.org/img/w/<?php echo $weather->getIcon()?>.png" /></div>
         <p>
